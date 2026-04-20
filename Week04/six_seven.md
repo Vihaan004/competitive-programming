@@ -7,13 +7,13 @@ Little Johnny is eating his rice, but as he is a five year old, he is brainrotte
 
 ## Input
 
-You are given an integer 1≤n≤104, the number of test cases.
+You are given an integer 1≤n≤10^4, the number of test cases.
 
-Each of the next n lines contains a single integer 1≤x≤106, the number of grains of rice on Johnny's plate.
+Each of the next n lines contains a single integer 1≤x≤10^6, the number of grains of rice on Johnny's plate.
 
 ## Output
 
-For each test case, output the number of distinct ways Johnny can eat his rice. As this number may be large, print the answer modulo 109+7.
+For each test case, output the number of distinct ways Johnny can eat his rice. As this number may be large, print the answer modulo 10^9+7.
 
 ## Example
 

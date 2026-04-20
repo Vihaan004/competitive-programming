@@ -13,13 +13,13 @@ You need to help Yarik by finding the maximum sum of such a subarray.
 
 ## Input
 
-The first line contains an integer t (1≤t≤104) — number of test cases. Each test case is described as follows.
+The first line contains an integer t (1≤t≤10^4) — number of test cases. Each test case is described as follows.
 
-The first line of each test case contains an integer n (1≤n≤2⋅105) — length of the array.
+The first line of each test case contains an integer n (1≤n≤2⋅10^5) — length of the array.
 
-The second line of each test case contains n integers a1,a2,…,an (−103≤ai≤103) — elements of the array.
+The second line of each test case contains n integers a1,a2,…,an (−10^3≤ai≤10^3) — elements of the array.
 
-It is guaranteed that the sum of n for all test cases does not exceed 2⋅105.
+It is guaranteed that the sum of n for all test cases does not exceed 2⋅10^5.
 
 ## Output
 

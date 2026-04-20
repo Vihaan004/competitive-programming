@@ -17,7 +17,9 @@ void solve() {
     int answer = best_end[0];
 
     for (int i = 1; i < n; i++) {
+        // if current and previous different parity, add to current best, else start new
         if ((a[i] + a[i-1]) % 2 != 0) {
+            // max cause a[i] could be negative
             best_end[i] = max(a[i], best_end[i-1] + a[i]);
         } else {
             best_end[i] = a[i];

@@ -19,6 +19,7 @@ void solve() {
         
         // if we can extend sequence ending at val-1
         if (dp.count(val - 1)) {
+            // extend if it's better than current best for val
             if (!dp.count(val) || dp[val-1].first + 1 > dp[val].first) {
                 dp[val] = {dp[val-1].first + 1, i};
             }
@@ -30,6 +31,7 @@ void solve() {
         }
     }
     
+    // find best sequence
     int maxLen = 0, endVal = 0;
     for (auto& [val, p] : dp) {
         if (p.first > maxLen) {
@@ -38,6 +40,7 @@ void solve() {
         }
     }
     
+    // reconstruct sequence
     vi result;
     int currVal = endVal;
     for (int len = maxLen; len > 0; len--) {

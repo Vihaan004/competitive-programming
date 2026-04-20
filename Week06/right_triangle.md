@@ -11,7 +11,7 @@ The first line contains two positive integer numbers n and m (1 ≤ n, m�
 
 ## Output
 
-Output a single number — total number of square triangles in the field. Please, do not use %lld specificator to read or write 64-bit integers in C++. It is preffered to use cout (also you may use %I64d).
+Output a single number — total number of right triangles in the field. Please, do not use %lld specificator to read or write 64-bit integers in C++. It is preffered to use cout (also you may use %I64d).
 
 ## Examples
 

@@ -9,6 +9,7 @@ Choose two vertices of the tree u and v;
 Compress all the vertices on the path from u to v into one vertex. In other words, all the vertices on path from u to v will be erased from the tree, a new vertex w will be created. Then every vertex s that had an edge to some vertex on the path from u to v will have an edge to the vertex w.
 
 Illustration of a zelda-operation performed for vertices 1 and 5.
+![](https://espresso.codeforces.com/addde5e950b38560bc9f7ca4f6262a1dde4ae6a9.png)
 
 Determine the minimum number of zelda-operations required for the tree to have only one vertex.
 

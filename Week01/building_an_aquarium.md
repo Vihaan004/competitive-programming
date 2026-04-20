@@ -13,13 +13,13 @@ You can use at most x units of water to fill up the tank, but you want to build 
 
 ## Input
 
-The first line contains a single integer t (1≤t≤104) — the number of test cases.
+The first line contains a single integer t (1≤t≤10^4) — the number of test cases.
 
-The first line of each test case contains two positive integers n and x (1≤n≤2⋅105; 1≤x≤109) — the number of columns of the coral and the maximum amount of water you can use.
+The first line of each test case contains two positive integers n and x (1≤n≤2⋅10^5; 1≤x≤10^9) — the number of columns of the coral and the maximum amount of water you can use.
 
-The second line of each test case contains n space-separated integers ai (1≤ai≤109) — the heights of the coral.
+The second line of each test case contains n space-separated integers ai (1≤ai≤10^9) — the heights of the coral.
 
-The sum of n over all test cases doesn't exceed 2⋅105.
+The sum of n over all test cases doesn't exceed 2⋅10^5.
 
 ## Output
 
