@@ -1,3 +1,11 @@
+# Practice
+- [consecutive_subsequence](../Week04/consecutive_subsequence.md)
+- [long_jumps](../Week04/long_jumps.md)
+- [six_seven](../Week04/six_seven.md)
+- [yarik_and_array](../Week04/yarik_and_array.md)
+- [cut_ribbon](../Week12/cut_ribbon.md)
+- [the_sports_festival](../Week12/the_sports_festival.md)
+
 Dynamic Programming (DP) is about turning a brute force ("try all choices") into a polynomial solution by **reusing overlapping subproblems** and storing intermediate calculations.
 
 # 0. Starter Problems
@@ -287,3 +295,47 @@ This method computes the **length** of the LIS efficiently (and can be extended 
 A good source of DP problems to begin with can be found on [USACO Guide](https://usaco.guide/gold/intro-dp?lang=cpp).
 
 They also link to this beginner friendly [contest](https://codeforces.com/gym/100135).
+
+
+# Advanced Dynamic Programming Techniques
+
+## 1. Bitmask DP
+
+Bitmask DP typically appears when one dimension of the problem is a small set of size at most about $20$.
+The general pattern is that the DP state includes a bitmask encoding which items are present/taken so far.
+
+Typical complexities:
+
+- $O(n \cdot 2^n)$ when the DP state is just the mask and each transition removes/adds one element.
+- $O(3^n)$ when enumerating all submasks over all masks.
+
+Problems:
+
+- Matching (AtCoder)
+- Elevator Rides (CSES)
+- Grouping (AtCoder)
+- Pokemon Go Go (Kattis)
+- Little Pony and Harmony Chest (CF)
+- Friendship Editing (USACO)
+
+## 2. Range DP
+
+Range DP (interval DP) is used when the natural subproblem is a contiguous interval $[l, r]$.
+The state is usually something like `dp[l][r]`.
+
+Common transitions:
+
+- Split the interval at some point.
+- Choose the first/last operation that happens inside the interval.
+
+Typical complexity:
+
+- Often $O(n^3)$ from trying all split points.
+- Can be $O(n^2)$ if each transition is fast.
+
+Practice:
+
+- Removal Game (CSES)
+- Mixtures (SPOJ)
+- Zuma (CF)
+- Greedy Pie Eaters (USACO)

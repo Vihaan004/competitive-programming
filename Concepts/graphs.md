@@ -1,3 +1,8 @@
+# Practice
+- [two_buttons](../Week03/two_buttons.md)
+- [checkposts](../Week11/checkposts.md)
+- [news_distribution](../Week11/news_distribution.md)
+
 Graph problems are mostly about (1) modeling correctly and (2) picking the right tool for the constraints.
 
 A good workflow:
@@ -10,7 +15,7 @@ A good workflow:
 2. **Estimate constraints**.
     - Let `n` be the number of nodes and `m` the number of edges.
     - Use an adjacency list unless the graph is very dense.
-    - Typical targets: `O(n+m)`, `O(m log n)`, or `O(n^2)` depending on constraints.
+    - Typical targets: $O(n+m)$, $O(m \log n)$, or $O(n^2)$ depending on constraints.
 
 ---
 
@@ -25,7 +30,7 @@ Common modeling patterns:
 - **Constraints → directed edges**: “A must come before B” becomes an edge `A -> B`.
 - **Equivalence / grouping**: “in the same component” often points to DSU / BFS / DFS.
 
-Sanity checks
+Sanity checks:
 
 - Directed vs undirected?
 - Weighted vs unweighted?
@@ -57,7 +62,7 @@ Implementation notes:
 
 Complexity:
 
-- `O(n + m)` time, `O(n)` memory
+- $O(n+m)$ time, $O(n)$ memory
 
 Example problems:
 
@@ -86,7 +91,7 @@ Implementation notes:
 
 Complexity:
 
-- `O(n + m)` time, `O(n)` memory
+- $O(n+m)$ time, $O(n)$ memory
 
 Example problems:
 
@@ -111,7 +116,7 @@ Choosing the right tool:
 - **Unweighted**: BFS
 - **Non-negative weights**: Dijkstra (min-heap / `priority_queue`)
 - **Negative weights (no negative cycles)**: Bellman–Ford
-- **All-pairs, small `n` (~500)**: Floyd-Warshall
+- **All-pairs, small `n` (~500)**: Floyd–Warshall
 
 Dijkstra (most common): works when **all edge weights are >= 0**.
 
@@ -121,9 +126,9 @@ Dijkstra (most common): works when **all edge weights are >= 0**.
 
 Complexity:
 
-- Dijkstra: `O(m log n)` (often written as `O(m log m)` in implementations using `push`heavy heaps)
-- Bellman-Ford: `O(nm)`
-- Floyd-Warshall: `O(n^3)`
+- Dijkstra: $O(m \log n)$ (often written as $O(m \log m)$ in push-heavy heap implementations)
+- Bellman–Ford: $O(nm)$
+- Floyd–Warshall: $O(n^3)$
 
 Example problems:
 
@@ -163,7 +168,7 @@ Cycle detection:
 
 Complexity:
 
-- `O(n + m)`
+- $O(n+m)$
 
 Example problems:
 
@@ -185,17 +190,53 @@ When to use:
 Key CP patterns:
 
 - SCC compression turns messy directed graphs into a **DAG**, enabling DP/topo solutions.
+- The SCC condensation graph (SCCs as nodes, edges between SCCs) is always a DAG.
 - Typical algorithms:
     - **Kosaraju:** two DFS passes (on graph and reversed graph)
     - **Tarjan:** one DFS pass with low-link values
 
+Reference implementation:
+
+- KACTL SCC: https://github.com/kth-competitive-programming/kactl/blob/main/content/graph/SCC.h
+
 Complexity:
 
-- `O(n + m)`
+- $O(n+m)$
 
 Practice:
 
 - [Planets and Kingdoms (CSES)](https://cses.fi/problemset/task/1683)
+- [Coin Collector (CSES)](https://cses.fi/problemset/task/1686)
+- [Grass Cownoisseur (USACO)](https://usaco.org/index.php?page=viewproblem2&cpid=516)
+
+## 2-SAT (via SCC)
+
+A 2-SAT instance is a CNF formula where each clause has two literals, for example:
+
+$$(x \lor y) \land (x \lor \lnot z) \land (\lnot y \lor \lnot z)$$
+
+Build an **implication graph**:
+
+- For each variable $x$, create two nodes: $x$ and $\lnot x$.
+- Each clause $(a \lor b)$ is equivalent to:
+    - $(\lnot a \rightarrow b)$
+    - $(\lnot b \rightarrow a)$
+
+Satisfiability criterion:
+
+- The formula is satisfiable **iff** for every variable $x$, nodes $x$ and $\lnot x$ are not in the same SCC.
+
+Recovering an assignment (common CP rule):
+
+- Compute SCCs and consider the SCC DAG in topological order.
+- Set $x = \text{true}$ if the SCC of $x$ comes after the SCC of $\lnot x$ in the SCC DAG order.
+
+Problems:
+
+- [Giant Pizza (CSES)](https://cses.fi/problemset/task/1684)
+- [Corporate Retreat (Rocky Mountain Regional 2025)](https://rmc25.kattis.com/contests/rmc25/problems/corporateretreat)
+- [Coprime Solitaire (AtCoder ABC210 F)](https://atcoder.jp/contests/abc210/tasks/abc210_f)
+- [Babysitting (Codeforces 1903F)](https://codeforces.com/contest/1903/problem/F)
 
 ---
 
@@ -213,13 +254,24 @@ Implementation details:
 
 - Use **path compression** + **union by size/rank** for near-constant time.
 
+Notes:
+
+- Union by rank/size alone gives $O(\log n)$ per operation.
+- With both union by rank/size and path compression, the amortized cost is $O(\alpha(n))$ per operation.
+
+Reference implementation:
+
+- KACTL DSU: https://github.com/kth-competitive-programming/kactl/blob/main/content/data-structures/UnionFind.h
+
 Complexity:
 
-- Amortized ~ `O(α(n))` per operation (effectively constant)
+- Amortized $O(\alpha(n))$ per operation (effectively constant)
 
 Practice:
 
 - [Road Construction (CSES)](https://cses.fi/problemset/task/1676)
+- [Graph Destruction (AtCoder ABC229 E)](https://atcoder.jp/contests/abc229/tasks/abc229_e)
+- [Ada and Branches (SPOJ)](https://www.spoj.com/problems/ADABRANC/)
 
 ---
 
@@ -242,11 +294,19 @@ Two standard algorithms:
 
 Why greedy works (intuition): MST uses the **cut property**: for any cut, the lightest edge crossing it is safe to take.
 
+Useful properties:
+
+- **Cut property:** for any cut, one of the lightest edges crossing it belongs to an MST.
+- **Cycle property:** for any cycle, an edge that is the unique maximum on that cycle is not in any MST.
+- **Edge removal:** removing an edge from an MST splits it into two trees; each is an MST of its induced subgraph.
+
 Complexity:
 
-- Kruskal: `O(m log m)` (sorting dominates)
-- Prim: `O(m log n)` with heap
+- Kruskal: $O(m \log m)$ (sorting dominates)
+- Prim: $O(m \log n)$ with a heap
 
 Practice:
 
 - [Road Reparation (CSES)](https://cses.fi/problemset/task/1675)
+- [Moo Network (USACO)](https://usaco.org/index.php?page=viewproblem2&cpid=1211)
+- [MST Edge Cost (CSES)](https://cses.fi/problemset/task/3409)

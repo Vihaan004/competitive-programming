@@ -1,3 +1,7 @@
+# Practice
+- [range_range_query](../Week05/range_range_query.md)
+- [xenia_and_bit_operations](../Week05/xenia_and_bit_operations.md)
+
 # Segment Tree
 
 The segment tree is one of the most versatile tools in competitive programming. It helps answer range queries efficiently while supporting updates.

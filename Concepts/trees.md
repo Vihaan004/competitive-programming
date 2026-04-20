@@ -1,3 +1,7 @@
+# Practice
+- [beginners_zelda](../Week08/beginners_zelda.md)
+- [christmas_spruce](../Week08/christmas_spruce.md)
+
 # Tree Definitions and Terminology
 
 ## What is a Tree?

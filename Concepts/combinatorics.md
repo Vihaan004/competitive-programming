@@ -1,3 +1,7 @@
+# Practice
+- [chocolate](../Week06/chocolate.md)
+- [right_triangle](../Week06/right_triangle.md)
+
 # Basics of Counting
 
 ## Binomial Coefficient Pattern: Choose Positions

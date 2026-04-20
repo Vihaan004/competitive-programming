@@ -1,3 +1,9 @@
+# Practice
+- [common_divisors](../Week07/common_divisors.md)
+- [odd_divisor](../Week07/odd_divisor.md)
+- [row_gcd](../Week07/row_gcd.md)
+- [soldier_and_number_game](../Week07/soldier_and_number_game.md)
+
 # Divisors
 
 A huge number of problems boil down to looping over divisor pairs.

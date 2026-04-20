@@ -1,3 +1,15 @@
+# Practice
+- [building_an_aquarium](../Week01/building_an_aquarium.md)
+- [honest_coach](../Week01/honest_coach.md)
+- [karen_and_coffee](../Week01/karen_and_coffee.md)
+- [powering_the_hero](../Week01/powering_the_hero.md)
+- [spring_cleaning](../Week01/spring_cleaning.md)
+- [counting_test](../Week02/counting_test.md)
+- [quiz_master](../Week02/quiz_master.md)
+- [subarray_distinct_values](../Week02/subarray_distinct_values.md)
+- [remove_substring](../Week10/remove_substring.md)
+- [three_parts_of_the_array](../Week10/three_parts_of_the_array.md)
+
 This document introduces the core ideas and tools used throughout competitive programming. The goal is to build strong habits for analyzing problems and choosing efficient solutions.
 
 # 1. How Competitive Programming Problems Are Solved
